@@ -12,7 +12,6 @@
   "files": [
     "bindings/node/",
     "src/",
-    "prebuilds/",
     "binding.gyp",
     "index.js",
     "index.d.ts",
@@ -61,7 +60,7 @@
   },
   "scripts": {
     "install": "node-gyp-build",
-    "prebuild": "prebuildify --napi --strip --name node.napi",
+    "prebuild": "prebuildify --napi --strip",
     "test": "node test/integration.js"
   },
   "tree-sitter": [
