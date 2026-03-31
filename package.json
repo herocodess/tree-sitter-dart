@@ -1,21 +1,24 @@
 {
-  "name": "tree-sitter-dart",
+  "name": "@driftlog/tree-sitter-dart",
   "version": "1.0.0",
-  "description": "Dart grammar attempt for tree-sitter",
-  "main": "bindings/node",
-  "types": "bindings/node",
+  "description": "Dart grammar for tree-sitter",
+  "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "tree-sitter",
     "parser",
     "dart"
   ],
   "files": [
-    "grammar.js",
+    "bindings/node/",
+    "src/",
+    "prebuilds/",
     "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
+    "index.js",
+    "index.d.ts",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "contributors": [
     "Benjamin Sobel",
@@ -28,53 +31,38 @@
     "@seb-bl"
   ],
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herocodess/tree-sitter-dart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/herocodess/tree-sitter-dart/issues"
+  },
+  "homepage": "https://github.com/herocodess/tree-sitter-dart#readme",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "node-addon-api": "^7.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-gyp-build": "^4.8.1"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.25.0"
+    "tree-sitter": ">=0.22.0"
   },
   "peerDependenciesMeta": {
-    "tree_sitter": {
+    "tree-sitter": {
       "optional": true
     }
   },
   "devDependencies": {
     "node-gyp": "^10.2.0",
-    "npm-watch": "^0.13.0",
-    "tree-sitter-cli": "^0.25.10",
-    "prebuildify": "^6.0.0"
-  },
-  "watch": {
-    "test": {
-      "patterns": [
-        "corpus"
-      ],
-      "extensions": "dart",
-      "quiet": true
-    },
-    "build-test": {
-      "patterns": [
-        "./"
-      ],
-      "extensions": [
-        "js",
-        "scm",
-        "txt"
-      ],
-      "quiet": true
-    }
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.25.10"
   },
   "scripts": {
-    "build_init": "tree-sitter generate && node-gyp configure && node-gyp build",
-    "build": "tree-sitter generate && node-gyp build",
-    "test": "tree-sitter test",
-    "build-test": "tree-sitter generate && node-gyp build && tree-sitter test",
-    "watch-test": "npm-watch test",
-    "watch-grammar": "npm-watch build-test",
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
+    "prebuild": "prebuildify --napi --strip --name node.napi",
+    "test": "node test/integration.js"
   },
   "tree-sitter": [
     {

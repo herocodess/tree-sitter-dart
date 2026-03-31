@@ -1,18 +1,65 @@
-# tree-sitter-dart
-This is a tree-sitter grammar written for the dart programming language. We attempt to adhere as closely as possible to the dart language spec. Initially it was started with a copy of the tree-sitter Java grammar which is why there may be a few relics included in here. For the sake of simplifying the syntax tree, many items were made inlined with tree-sitter's "underscore" method of writing rules.
+# @driftlog/tree-sitter-dart
 
-# Getting Started
-- Go to the project directory
-- run `npm install` (first time)
-- run `npm run build_init` (first time) `npm run build` (subsequent times)
-- run `npm run test`
+Dart grammar for [tree-sitter](https://tree-sitter.github.io/tree-sitter/), published with prebuilt N-API binaries.
 
-# To test a single highlight file
-- run `tree-sitter highlight test/highlight/types.dart`
+Based on [UserNobody14/tree-sitter-dart](https://github.com/UserNobody14/tree-sitter-dart).
 
-# To test a single test file
-- run `tree-sitter test -f 'testcasefilter'`
-- for example `tree-sitter test -f 'dart string literals'`
+## Platforms
 
-# To show the output of a parse for a sample file (for example while debugging highlight issues)
-- run `tree-sitter parse path/to/file.dart`
+Prebuilt binaries are included for:
+
+| OS | Arch |
+|----|------|
+| macOS | x64, arm64 |
+| Linux | x64, arm64 |
+
+Falls back to compiling from source if no prebuilt is available for your platform.
+
+## Install
+
+```bash
+npm install @driftlog/tree-sitter-dart tree-sitter
+```
+
+## Usage
+
+```js
+const Parser = require('tree-sitter')
+const Dart = require('@driftlog/tree-sitter-dart')
+
+const parser = new Parser()
+parser.setLanguage(Dart)
+
+const tree = parser.parse(`
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+`)
+
+console.log(tree.rootNode.toString())
+```
+
+## Requirements
+
+- Node.js >= 18
+- `tree-sitter` >= 0.22.0
+
+## Development
+
+```bash
+# Install dependencies
+npm install --ignore-scripts
+
+# Build from source
+npx node-gyp rebuild
+
+# Run tests
+npm test
+
+# Build prebuilt binary
+npm run prebuild
+```
+
+## License
+
+ISC
