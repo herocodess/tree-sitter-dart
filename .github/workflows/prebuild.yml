@@ -38,6 +38,13 @@ jobs:
       - name: Build prebuilt
         run: npx prebuildify --napi --strip --name node.napi
 
+      - name: Sign binary (macOS only)
+        if: matrix.os == 'darwin'
+        run: |
+          codesign --sign - --force --deep \
+            prebuilds/${{ matrix.os }}-${{ matrix.arch }}/node.napi.node
+          echo "Signed."
+
       - name: Verify binary
         run: |
           test -f prebuilds/${{ matrix.os }}-${{ matrix.arch }}/node.napi.node
