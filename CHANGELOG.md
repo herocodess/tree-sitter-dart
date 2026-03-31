@@ -4,8 +4,7 @@
 
 ### Added
 - Published as @driftlog/tree-sitter-dart
-- Prebuilt N-API binaries for linux-x64, linux-arm64,
-  darwin-x64, darwin-arm64
+- Prebuilt N-API binaries for darwin-arm64, linux-x64, linux-arm64
 - node-gyp-build for reliable binary loading with source fallback
 
 ### Base

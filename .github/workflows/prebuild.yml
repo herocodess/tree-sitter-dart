@@ -15,9 +15,6 @@ jobs:
       matrix:
         include:
           - os: darwin
-            arch: x64
-            runner: macos-13
-          - os: darwin
             arch: arm64
             runner: macos-14
           - os: linux
@@ -84,7 +81,6 @@ jobs:
 
       - name: Verify all prebuilts
         run: |
-          test -f prebuilds/darwin-x64/node.napi.node   || { echo "MISSING darwin-x64"; exit 1; }
           test -f prebuilds/darwin-arm64/node.napi.node || { echo "MISSING darwin-arm64"; exit 1; }
           test -f prebuilds/linux-x64/node.napi.node    || { echo "MISSING linux-x64"; exit 1; }
           test -f prebuilds/linux-arm64/node.napi.node  || { echo "MISSING linux-arm64"; exit 1; }

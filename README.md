@@ -10,7 +10,7 @@ Prebuilt binaries are included for:
 
 | OS | Arch |
 |----|------|
-| macOS | x64, arm64 |
+| macOS | arm64 |
 | Linux | x64, arm64 |
 
 Falls back to compiling from source if no prebuilt is available for your platform.
