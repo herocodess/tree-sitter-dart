@@ -1,6 +1,6 @@
 {
   "name": "@driftlog/tree-sitter-dart",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dart grammar for tree-sitter",
   "main": "index.js",
   "types": "index.d.ts",
