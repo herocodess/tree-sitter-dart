@@ -48,7 +48,7 @@ jobs:
 
       - name: Test
         run: |
-          npm install tree-sitter --no-save --ignore-scripts
+          npm install tree-sitter --no-save
           node test/integration.js
 
       - uses: actions/upload-artifact@v4
@@ -92,7 +92,7 @@ jobs:
 
       - name: Final test
         run: |
-          npm install tree-sitter --no-save --ignore-scripts
+          npm install tree-sitter --no-save
           node test/integration.js
 
       - name: Dry run
