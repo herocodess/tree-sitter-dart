@@ -1,6 +1,6 @@
 {
   "name": "@driftlog/tree-sitter-dart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dart grammar for tree-sitter",
   "main": "index.js",
   "types": "index.d.ts",
@@ -71,7 +71,9 @@
         "dart"
       ],
       "highlights": "queries/highlights.scm",
-      "tags": ["queries/tags.scm"],
+      "tags": [
+        "queries/tags.scm"
+      ],
       "injection-regex": "dart"
     }
   ]
